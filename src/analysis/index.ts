@@ -6,7 +6,6 @@ export const getParagraphsTotalNumber = (text: string): number => {
   const filterParagraphs = paragraphs.filter(
     (paragraph) => paragraph !== "" && paragraph !== "\n"
   );
-
   return filterParagraphs.length;
 };
 
@@ -29,4 +28,14 @@ export const getCharactersTotalNumber = (text: string): number => {
   );
 
   return filterCharacters.length;
+};
+
+export const getShortWordsTotal = (text: string, maxLenght: 4): number => {
+  const trimmedText = text.replaceAll("\n", " ");
+  const words = trimmedText.split(" ");
+  const shortWords = words.filter(
+    (word) => word !== "" && word.length <= maxLenght
+  );
+
+  return shortWords.length;
 };
