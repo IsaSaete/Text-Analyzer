@@ -1,16 +1,11 @@
-export const getTotalNumberOfParagraphs = (text: string): number => {
-  const eliminatedSpacesInText = text.trim();
+export const getParagraphsTotalNumber = (text: string): number => {
+  const trimmedText = text.replaceAll(" ", "");
 
-  if (text === "" || text === " ") {
-    return 0;
-  }
+  const paragraphs = trimmedText.split("\n\n");
 
-  if (eliminatedSpacesInText === "") {
-    return 0;
-  }
+  const filterParagraphs = paragraphs.filter(
+    (paragraph) => paragraph !== "" && paragraph !== "\n"
+  );
 
-  const separatedParagraphs = text.split("\n\n");
-  const totalParagraphsNumber = separatedParagraphs.length;
-
-  return totalParagraphsNumber;
+  return filterParagraphs.length;
 };
