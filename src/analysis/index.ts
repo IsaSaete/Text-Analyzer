@@ -9,3 +9,13 @@ export const getParagraphsTotalNumber = (text: string): number => {
 
   return filterParagraphs.length;
 };
+
+export const getWordsTotalNumber = (text: string): number => {
+  const trimmedText = text.replaceAll("\n", "");
+
+  const separateWords = trimmedText.split(" ");
+
+  const filterWords = separateWords.filter((word) => word !== "");
+
+  return filterWords.length;
+};

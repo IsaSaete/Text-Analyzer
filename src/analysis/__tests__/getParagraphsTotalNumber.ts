@@ -44,7 +44,7 @@ const test2 = (): void => {
 test2();
 
 const test3 = (): void => {
-  const text = ``;
+  const text = "";
   const expectedParagraphsTotal = 0;
   const actualParagraphsTotal = getParagraphsTotalNumber(text);
 
