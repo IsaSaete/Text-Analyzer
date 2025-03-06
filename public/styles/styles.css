@@ -87,11 +87,14 @@ h2 {
 
 .frequencies-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   input {
     width: 110px;
   }
+  list-style: none;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .camel-case-text,
