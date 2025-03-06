@@ -30,7 +30,10 @@ export const getCharactersTotalNumber = (text: string): number => {
   return filterCharacters.length;
 };
 
-export const getShortWordsTotal = (text: string, maxLenght: 4): number => {
+export const getShortWordsTotal = (
+  text: string,
+  maxLenght: number = 4
+): number => {
   const trimmedText = text.replaceAll("\n", " ");
 
   const words = trimmedText.split(" ");
@@ -48,4 +51,24 @@ export const joinListWordsWithCommas = (listWords: string[]): string => {
   const joinListWord = words.join(",");
 
   return joinListWord;
+};
+
+export const showListShortWords = (text: string): string[] => {
+  const trimmedText = text.replaceAll("\n", " ");
+
+  const words = trimmedText.split(" ");
+
+  const shortWords = words.filter((word) => word !== "" && word.length <= 4);
+
+  return shortWords;
+};
+
+export const getWordFrecuency = (text: string, recibeWord: string): number => {
+  const trimmedText = text.replaceAll("\n", " ");
+
+  const words = trimmedText.split(" ");
+
+  const wordFrecuency = words.filter((word) => word === recibeWord).length;
+
+  return wordFrecuency;
 };
