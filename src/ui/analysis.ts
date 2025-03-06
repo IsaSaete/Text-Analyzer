@@ -1,4 +1,7 @@
-import { getParagraphsTotalNumber } from "../analysis/index.js";
+import {
+  getParagraphsTotalNumber,
+  showListShortWords,
+} from "../analysis/index.js";
 import { getWordsTotalNumber } from "../analysis/index.js";
 import { getCharactersTotalNumber } from "../analysis/index.js";
 import { getShortWordsTotal } from "../analysis/index.js";
@@ -129,5 +132,6 @@ export const analyzeText = (text: string): void => {
   renderWordsTotal(getWordsTotalNumber(text));
   renderCharactersTotal(getCharactersTotalNumber(text));
   renderShortWordsTotal(getShortWordsTotal(text, 4));
+  renderShortWordsList(showListShortWords(text).toString());
   renderReversedText(getWordReverse(text));
 };
