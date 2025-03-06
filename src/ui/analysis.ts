@@ -2,6 +2,7 @@ import { getParagraphsTotalNumber } from "../analysis/index.js";
 import { getWordsTotalNumber } from "../analysis/index.js";
 import { getCharactersTotalNumber } from "../analysis/index.js";
 import { getShortWordsTotal } from "../analysis/index.js";
+import { getWordFrecuency } from "../analysis/index.js";
 
 const totalsContainer = document.querySelector(".totals");
 const shortWordsContainer = document.querySelector(".short");
@@ -111,7 +112,7 @@ const listenFrequenciesChanges = (text: string): void => {
         const word = (event.target as HTMLInputElement).value;
 
         // Implement the frequency calculation here and delete this 0
-        const frequency = 0;
+        const frequency = getWordFrecuency(text, word);
 
         frequenciesContainer.querySelector(
           `.word-${index + 1}-frequency`
@@ -121,13 +122,10 @@ const listenFrequenciesChanges = (text: string): void => {
 };
 
 export const analyzeText = (text: string): void => {
-  // Keep this two calls
   listenFrequenciesChanges(text);
   listenForbiddenWordsChanges(text);
   renderParagraphsTotal(getParagraphsTotalNumber(text));
   renderWordsTotal(getWordsTotalNumber(text));
   renderCharactersTotal(getCharactersTotalNumber(text));
   renderShortWordsTotal(getShortWordsTotal(text, 4));
-
-  // Implement the rest of the analysis here
 };
