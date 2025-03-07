@@ -17,6 +17,7 @@ h1 {
 textarea {
   padding: 10px;
 }
+
 textarea,
 input,
 button {
@@ -34,10 +35,14 @@ input {
 
 a {
   color: inherit;
+  margin-bottom: 10px;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 h2 {
-  font-size: 20px;
   margin-top: 0;
 }
 
@@ -81,6 +86,10 @@ h2 {
 
   &.show {
     display: flex;
+
+    h2 {
+      font-size: 20px;
+    }
   }
 }
 
