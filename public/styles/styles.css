@@ -33,10 +33,13 @@ button {
 
 input {
   padding: 5px;
+  border-style: solid;
+  border-color: rgb(28, 137, 199);
 }
 
 input:focus {
-  color: #333;
+  color: #ffffff;
+  background-color: #403d3d;
 }
 
 a {
@@ -132,13 +135,6 @@ h2 {
 
   input {
     width: 110px;
-    border-style: solid;
-    border-color: rgb(28, 137, 199);
-    color: white;
-
-    &:focus {
-      background-color: #403d3d;
-    }
   }
 }
 
