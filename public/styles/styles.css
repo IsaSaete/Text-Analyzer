@@ -33,6 +33,10 @@ input {
   padding: 5px;
 }
 
+input:focus {
+  color: #333;
+}
+
 a {
   color: inherit;
   margin-bottom: 10px;
@@ -104,12 +108,20 @@ h2 {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  input {
-    width: 110px;
-  }
   list-style: none;
   padding-left: 0px;
   padding-right: 0px;
+
+  input {
+    width: 110px;
+    border-style: solid;
+    border-color: rgb(28, 137, 199);
+    color: white;
+
+    &:focus {
+      background-color: #403d3d;
+    }
+  }
 }
 
 .camel-case-text,
