@@ -16,6 +16,7 @@ h1 {
 
 textarea {
   padding: 10px;
+  border-radius: 10px;
 }
 
 textarea,
@@ -102,6 +103,7 @@ h2 {
   border: 2px solid #333;
   background-color: beige;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .frequencies-list {
