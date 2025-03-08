@@ -1,37 +1,31 @@
 import {
   getParagraphsTotalNumber,
   showListShortWords,
+  getWordsTotalNumber,
+  getCharactersTotalNumber,
+  getShortWordsTotal,
+  getWordFrecuency,
+  getWordReverse,
 } from "../analysis/index.js";
-import { getWordsTotalNumber } from "../analysis/index.js";
-import { getCharactersTotalNumber } from "../analysis/index.js";
-import { getShortWordsTotal } from "../analysis/index.js";
-import { getWordFrecuency } from "../analysis/index.js";
-import { getWordReverse } from "../analysis/index.js";
 
 const totalsContainer = document.querySelector(".totals");
 const shortWordsContainer = document.querySelector(".short");
-const palindromesContainer = document.querySelector(".palindromes");
+
 const frequenciesContainer = document.querySelector(
   ".frequencies .frequencies-list"
 );
 const reversedWordsContainer = document.querySelector(".reversed-words");
-const reversedTextContainer = document.querySelector(".reversed-text");
+
 const forbiddenContainer = document.querySelector(".forbidden");
 const camelCaseContainer = document.querySelector(".camel-case");
-const kebabCaseContainer = document.querySelector(".kebab-case");
-const snakeCaseContainer = document.querySelector(".snake-case");
 
 if (
   !totalsContainer ||
   !shortWordsContainer ||
-  !palindromesContainer ||
   !frequenciesContainer ||
   !reversedWordsContainer ||
-  !reversedTextContainer ||
   !forbiddenContainer ||
-  !camelCaseContainer ||
-  !kebabCaseContainer ||
-  !snakeCaseContainer
+  !camelCaseContainer
 ) {
   throw new Error("Missing elements");
 }
@@ -60,10 +54,6 @@ const renderShortWordsList = (shortWords: string): void => {
   shortWordsContainer.querySelector(".short-words")!.textContent = shortWords;
 };
 
-const renderPalindromes = (palindromes: string): void => {
-  palindromesContainer.querySelector(".palindromes")!.textContent = palindromes;
-};
-
 const renderForbiddenWords = (forbiddenWords: string): void => {
   forbiddenContainer.querySelector(".censured-text")!.textContent =
     forbiddenWords;
@@ -74,24 +64,9 @@ const renderReversedWords = (reversedWords: string): void => {
     reversedWords;
 };
 
-const renderReversedText = (reversedText: string): void => {
-  reversedTextContainer.querySelector(".reversed-text-list")!.textContent =
-    reversedText;
-};
-
 const renderCamelCase = (camelCaseText: string): void => {
   camelCaseContainer.querySelector(".camel-case-text")!.textContent =
     camelCaseText;
-};
-
-const renderKebabCase = (kebabCaseText: string): void => {
-  kebabCaseContainer.querySelector(".kebab-case-text")!.textContent =
-    kebabCaseText;
-};
-
-const renderSnakeCase = (snakeCaseText: string): void => {
-  snakeCaseContainer.querySelector(".snake-case-text")!.textContent =
-    snakeCaseText;
 };
 
 const listenForbiddenWordsChanges = (text: string): void => {
@@ -116,7 +91,7 @@ const listenFrequenciesChanges = (text: string): void => {
         const word = (event.target as HTMLInputElement).value;
 
         // Implement the frequency calculation here and delete this 0
-        const frequency = 0;
+        const frequency = getWordFrecuency(text, word);
 
         frequenciesContainer.querySelector(
           `.word-${index + 1}-frequency`
@@ -133,5 +108,5 @@ export const analyzeText = (text: string): void => {
   renderCharactersTotal(getCharactersTotalNumber(text));
   renderShortWordsTotal(getShortWordsTotal(text, 4));
   renderShortWordsList(showListShortWords(text).toString());
-  renderReversedText(getWordReverse(text));
+  renderReversedWords(getWordReverse(text));
 };
