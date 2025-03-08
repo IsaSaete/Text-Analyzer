@@ -11,6 +11,29 @@ body {
   background-color: #c6d9ec;
 }
 
+.dark {
+  background-color: #132639;
+  color: #fff;
+
+  .analysis__item {
+    background-color: #6d7f15;
+    color: #eae9fc;
+  }
+
+  .button {
+    color: #fff;
+    border-color: #eae9fc;
+
+    &:hover {
+      color: #eae9fc;
+    }
+  }
+
+  input {
+    border-color: #132639;
+  }
+}
+
 h1 {
   text-decoration: underline;
 }
@@ -62,11 +85,11 @@ h2 {
   padding: 5px 10px;
   width: 100px;
   align-self: flex-end;
-  border: 1px solid black;
+  border: 1px solid #000000;
 
   &:hover {
     background-color: transparent;
-    color: black;
+    color: #000000;
   }
 
   &:disabled {
