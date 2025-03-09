@@ -10,7 +10,7 @@ export const getParagraphsTotalNumber = (text: string): number => {
 };
 
 export const getWordsTotalNumber = (text: string): number => {
-  const trimmedText = text.replaceAll("\n", "");
+  const trimmedText = text.replaceAll("\n", " ");
 
   const separateWords = trimmedText.split(" ");
 
