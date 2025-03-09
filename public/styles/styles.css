@@ -236,3 +236,12 @@ input:checked + .slider:before {
   display: block;
   margin-bottom: 30px;
 }
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
